@@ -1,5 +1,5 @@
 ###########################################
-# Desc: .
+# Desc: Program 3 – Imperial to Metric Conversion.
 #
 # Author: Laercio.
 ###########################################
@@ -9,9 +9,6 @@ def main():
     # Make sure you tab once for every line.
 
     # Input
-    name = input("Enter the customer's name: ")
-    deliveryDistance = input("Enter the distance in kilometers for delivery: ")
-    recordsCost = input("Enter the cost of records purchased: ")
 
     # Process
 

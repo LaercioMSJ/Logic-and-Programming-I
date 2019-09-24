@@ -12,19 +12,19 @@ def main():
 
     # Input
     # weeklySalary = 1000
-    weeklySalary = input("\nPlease enter the full amount of your weekly salary: ")
+    weeklySalary = float(input("\nPlease enter the full amount of your weekly salary: "))
     # dependents = 2
-    dependents = input("How many dependents do you have? ")
+    dependents = int(input("How many dependents do you have? "))
     provincialTaxRate = 0.06
     federalTaxRate = 0.25
     dependentsTaxRate = 0.02
 
     # Process
-    provincialTaxWithheld = float(weeklySalary) * float(provincialTaxRate)
-    federalTaxWithheld = float(weeklySalary) * float(federalTaxRate)
-    dependentDeduction = float(weeklySalary) * (int(dependents) * float(dependentsTaxRate))
+    provincialTaxWithheld = weeklySalary * provincialTaxRate
+    federalTaxWithheld = weeklySalary * federalTaxRate
+    dependentDeduction = weeklySalary * (dependents * dependentsTaxRate)
     totalWithheld = (provincialTaxWithheld + federalTaxWithheld) - dependentDeduction
-    totalTakeHomePay = float(weeklySalary) - totalWithheld
+    totalTakeHomePay = weeklySalary - totalWithheld
 
     # Output
     #print("{0:.2f}".format(provincialTaxWithheld))
@@ -32,7 +32,7 @@ def main():
     #print("{0:.2f}".format(federalTaxWithheld))
     print("Federal Tax Withheld: ${0:.2f}".format(federalTaxWithheld))
     #print("{0:.0f} {1:.2f}".format(int(dependents), dependentDeduction))
-    print("Dependent Deduction for {0:.0f} dependents: ${1:.2f}".format(int(dependents), dependentDeduction))
+    print("Dependent Deduction for {0} dependents: ${1:.2f}".format(dependents, dependentDeduction))
     #print("{0:.2f}".format(totalWithheld))
     print("Total Withheld: ${0:.2f}".format(totalWithheld))
     #print("{0:.2f}".format(totalTakeHomePay))
