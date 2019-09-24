@@ -1,5 +1,5 @@
 ###########################################
-# Desc: .
+# Desc: Tech Check 2 - Tax Withheld Calculator.
 #
 # Author: Laercio.
 ###########################################
@@ -8,9 +8,11 @@ def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
+    print("Tax Withheld Calculator")
+
     # Input
     # weeklySalary = 1000
-    weeklySalary = input("Please enter the full amount of your weekly salary: ")
+    weeklySalary = input("\nPlease enter the full amount of your weekly salary: ")
     # dependents = 2
     dependents = input("How many dependents do you have? ")
     provincialTaxRate = 0.06
@@ -26,11 +28,11 @@ def main():
 
     # Output
     #print("{0:.2f}".format(provincialTaxWithheld))
-    print("Provincial Tax Withheld: ${0:.2f}".format(provincialTaxWithheld))
+    print("\nProvincial Tax Withheld: ${0:.2f}".format(provincialTaxWithheld))
     #print("{0:.2f}".format(federalTaxWithheld))
     print("Federal Tax Withheld: ${0:.2f}".format(federalTaxWithheld))
     #print("{0:.0f} {1:.2f}".format(int(dependents), dependentDeduction))
-    print("Dependent Deduction for {0:.0f} dependents: ${1:.2f}.".format(int(dependents), dependentDeduction))
+    print("Dependent Deduction for {0:.0f} dependents: ${1:.2f}".format(int(dependents), dependentDeduction))
     #print("{0:.2f}".format(totalWithheld))
     print("Total Withheld: ${0:.2f}".format(totalWithheld))
     #print("{0:.2f}".format(totalTakeHomePay))
