@@ -8,11 +8,11 @@ def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
-    # Input
+    # INPUT
 
-    # Process
+    # PROCESS
 
-    # Output
+    # OUTPUT
     print("Hello World")
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
