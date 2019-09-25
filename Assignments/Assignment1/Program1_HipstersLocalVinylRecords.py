@@ -22,9 +22,9 @@ def main():
     # Make sure you tab once for every line.
 
     # Input
-    name = input("Enter the customer's name: ")
-    deliveryDistance = input("Enter the distance in kilometers for delivery: ")
-    recordsCost = input("Enter the cost of records purchased: ")
+    customerName = input("\nEnter the customer's name: ")
+    deliveryDistance = float(input("Enter the distance in kilometers for delivery: "))
+    recordsCost = float(input("Enter the cost of records purchased: "))
 
     # Process
 
