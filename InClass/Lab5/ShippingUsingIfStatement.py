@@ -17,20 +17,29 @@ def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
+
     # INPUT
+    # Declaration of totalPurchase variable with input of a float value via keyboard
     totalPurchase = float(input("Please, enter the amount of your total purchase: "))
+
+    # Declaration of shipping variable
     shipping = float(10)
 
+
     # PROCESS
+    # If statement
     if totalPurchase < 50:
         finalTotal = totalPurchase + shipping
-        print("Your final total is ${0:.2f} including ${1:.2f} shipping costs.".format(finalTotal,shipping))
+        print("Including ${1:.2f} shipping costs for your purchase.".format(finalTotal,shipping))
     else:
         finalTotal = totalPurchase
-        print("Your final total is ${0:.2f}. Not included shipping cost for your purchase.".format(finalTotal))
+        print("Not included shipping cost for your purchase.")
+
 
     # OUTPUT
-    print("Have a nice day.")
+    # Program shows on-screen the sentence contained within the quotation marks and the value contained in the variable finalTotal.
+    # The format method is used to return the formatted string.
+    print("Your final total is ${0:.2f}.".format(finalTotal))
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
