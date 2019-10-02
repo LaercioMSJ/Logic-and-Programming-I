@@ -25,35 +25,33 @@ def main():
     # Make sure you tab once for every line.
 
     # INPUT
-    country = input('Please, what country are you from? ')
+    country = input("\nPlease, what country are you from? ").upper()
 
-    if country == 'canada':
-        province = input('Please, what province are you from? ')
+    if country == 'CANADA':
+        province = input("Please, what province are you from? ").upper()
     
-    orderTotal = float(input('Please, what is your order total? '))
+    orderTotal = float(input("Please, what is your order total? "))
 
-    taxAlberta = 0.05
-
-    taxOnNbNs = 0.15
-
-    taxOtherProvinces = 0.11
+    taxAlberta = 5
+    taxOnNbNs = 15
+    taxOtherProvinces = 11
 
     # PROCESS
-    if country == 'canada':
-        if province == 'alberta':
-            totalWithTaxes = (orderTotal * taxAlberta) + orderTotal
-            print("The total with taxes for your order is ${0:.2f} and your tax is {1:.3f}".format(totalWithTaxes, taxAlberta))
+    if country == 'CANADA':
+        if province == 'ALBERTA':
+            totalWithTaxes = (orderTotal * taxAlberta / 100) + orderTotal
+            print("\nThe total with taxes for your order is ${0:.2f} and your tax is {1:.0f}%".format(totalWithTaxes, taxAlberta))
 
-        elif province == ('ontario' or 'new brunswick' or 'nova scotia'):
-            totalWithTaxes = (orderTotal * taxOnNbNs) + orderTotal
-            print("The total with taxes for your order is ${0:.2f} and your tax is {1:.3f}".format(totalWithTaxes, taxOnNbNs))
+        elif province == ('ONTARIO' or 'NEW BRUNSWICK' or 'NOVA SCOTIA'):
+            totalWithTaxes = (orderTotal * taxOnNbNs / 100) + orderTotal
+            print("\nThe total with taxes for your order is ${0:.2f} and your tax is {1:.0f}%".format(totalWithTaxes, taxOnNbNs))
 
         else:
-            totalWithTaxes = (orderTotal * taxOtherProvinces) + orderTotal
-            print("The total with taxes for your order is ${0:.2f} and your tax is {1:.3f}".format(totalWithTaxes, taxOtherProvinces))
+            totalWithTaxes = (orderTotal * taxOtherProvinces / 100) + orderTotal
+            print("\nThe total with taxes for your order is ${0:.2f} and your tax is {1:.0f}%".format(totalWithTaxes, taxOtherProvinces))
 
     else:
-        print("The total for your order is ${0:.2f} and you do not have tax".format(orderTotal))
+        print("\nThe total for your order is ${0:.2f} and you do not have tax".format(orderTotal))
 
     # OUTPUT
 
