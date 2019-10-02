@@ -53,8 +53,7 @@ def main():
             print("The total with taxes for your order is ${0:.2f} and your tax is {1:.3f}".format(totalWithTaxes, taxOtherProvinces))
 
     else:
-        totalWithTaxes = orderTotal
-        print("The total for your order is ${0:.2f} and you do not have tax".format(totalWithTaxes))
+        print("The total for your order is ${0:.2f} and you do not have tax".format(orderTotal))
 
     # OUTPUT
 
