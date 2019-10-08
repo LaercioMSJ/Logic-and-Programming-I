@@ -18,10 +18,12 @@ def main():
     numberOfHours = float(input("\nPlease, enter the number of hours you worked this week: "))
     dollarPerHour = float(input("\nPlease, enter the dollar amount you make per hour: "))
 
+    overtimePay = 1.5
+
     # PROCESS
     if numberOfHours > 40:
         overtimeHours = numberOfHours - 40
-        payment = (overtimeHours * (dollarPerHour * .5)) + (numberOfHours * dollarPerHour)
+        payment = (overtimeHours * (dollarPerHour * overtimePay)) + ((numberOfHours - overtimeHours) * dollarPerHour)
     else:
         payment = numberOfHours * dollarPerHour
 
