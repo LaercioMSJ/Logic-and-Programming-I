@@ -15,17 +15,18 @@ def main():
     # Make sure you tab once for every line.
 
     # INPUT
-    numberOfHours = float(input("\nPlease, enter the number of hours you worked this week: "))
-    dollarPerHour = float(input("\nPlease, enter the dollar amount you make per hour: "))
-
-    overtimePay = 1.5
+    numberOfHoursWorked = float(input("\nPlease, enter the number of hours you worked this week: "))
+    regularRatePerHour = float(input("\nPlease, enter the dollar amount you make per hour: "))
+    maxNumHours = 40
+    overtimeRate = 1.5
+    overtimeHours = 0
 
     # PROCESS
-    if numberOfHours > 40:
-        overtimeHours = numberOfHours - 40
-        payment = (overtimeHours * (dollarPerHour * overtimePay)) + ((numberOfHours - overtimeHours) * dollarPerHour)
+    if numberOfHoursWorked > maxNumHours:
+        overtimeHours = numberOfHoursWorked - maxNumHours
+        payment = (overtimeHours * (regularRatePerHour * overtimeRate)) + ((numberOfHoursWorked - overtimeHours) * regularRatePerHour)
     else:
-        payment = numberOfHours * dollarPerHour
+        payment = numberOfHoursWorked * regularRatePerHour
 
     # OUTPUT
     print("\nYour payment is: ${0:.2f}".format(payment))

@@ -15,14 +15,18 @@ def main():
 
     # INPUT
     luggageWeight = float(input("\nPlease, enter the total weight of their luggage: "))
+    maxWeight = 50
+    surcharge = 25
+    message = ""
 
     # PROCESS
+    if luggageWeight > maxWeight:
+        message = "\nYour luggage has exceeded the weight limit. A ${:.2f} surcharge will apply.".format(surcharge)
+    else:
+        message = "\nYour luggage has not exceeded the weight limit. Surcharge is not required."
 
     # OUTPUT
-    if luggageWeight > 50:
-        print("\nYour luggage has exceeded the weight limit. A $ 25 surcharge will apply.")
-    else:
-        print("\nYour luggage has not exceeded the weight limit. Surcharge is not required.")
+    print(message)
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
