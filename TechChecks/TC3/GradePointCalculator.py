@@ -22,25 +22,34 @@ def main():
     modifier = input("Please enter a modifier (+, - or nothing) : ")
     numericValue = 0
 
+    NumericA = 4
+    NumericB = 3
+    NumericC = 2
+    NumericD = 1
+    NumericF = 0
+    NumericPlus = 0.3
+    NumericMinus = -0.3
+
+
     # PROCESS
     if letterGrade == "A":
-        numericValue = 4
+        numericValue = NumericA
     elif letterGrade == "B":
-        numericValue = 3
+        numericValue = NumericB
     elif letterGrade == "C":
-        numericValue = 2
+        numericValue = NumericC
     elif letterGrade == "D":
-        numericValue = 1
+        numericValue = NumericD
     elif letterGrade == "F":
-        numericValue = 0
+        numericValue = NumericF
         modifier = ""
     else:
         print("\nYou entered an invalid letter grade.")
 
     if modifier == "+" and letterGrade != "A":
-        numericValue += 0.3
+        numericValue += NumericPlus
     elif modifier == "-":
-        numericValue -= 0.3 
+        numericValue += NumericMinus 
 
     # OUTPUT
     print("\nThe numeric value is: {0:.1f}".format(numericValue))
