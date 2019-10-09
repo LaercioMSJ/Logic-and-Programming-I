@@ -9,13 +9,23 @@
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
+    displayIntro()
 
     # INPUT
+    hotelTaxTotal
 
     # PROCESS
+    hotelTaxTotal = applyTax
 
     # OUTPUT
-    print("Hello World")
+
+
+def displayIntro():
+    print("Welcome to my tax calculator")
+
+
+def applyTax(valueToTax):
+    value = valueTotalTax
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
