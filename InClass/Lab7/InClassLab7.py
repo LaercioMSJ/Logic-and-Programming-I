@@ -22,17 +22,17 @@ def main():
 
     # PROCESS
 
-    def adding(firtNumber, secondNumber):
-        return firtNumber + secondNumber
+    def adding(value1, value2):
+        return value1 + value2
 
-    def subtracting(firtNumber, secondNumber):
-        return firtNumber - secondNumber
+    def subtracting(value1, value2):
+        return value1 - value2
 
-    def multiplying(firtNumber, secondNumber):
-        return firtNumber * secondNumber
+    def multiplying(value1, value2):
+        return value1 * value2
 
-    def dividing(firtNumber, secondNumber):
-        return firtNumber / secondNumber
+    def dividing(value1, value2):
+        return value1 / value2
 
 
     # OUTPUT

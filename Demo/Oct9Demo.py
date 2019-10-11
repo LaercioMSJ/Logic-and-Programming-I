@@ -1,31 +1,36 @@
 ###########################################
-# Desc: .
+# Desc: Enter application description here.
 #
-# Date: XX October 2019
-#
-# Author: Laercio M da Silva Junior - W0433181.
+# Author: Enter name here.
 ###########################################
 
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
     displayIntro()
+    # Input
+    hotelCost = 100
+    airfareCost = 200
+    baggageCost = 300
 
-    # INPUT
-    hotelTaxTotal
+    # Process
+    hotelTaxTotal = applyTax(hotelCost)
+    airfareTaxTotal = applyTax(airfareCost)
+    baggageTaxTotal = applyTax(baggageCost)
+    grandTaxTotal = hotelTaxTotal + airfareTaxTotal + baggageTaxTotal
 
-    # PROCESS
-    hotelTaxTotal = applyTax
-
-    # OUTPUT
-
-
+    # Output
+    print("Total tax is ${:.2f}".format(grandTaxTotal))
+    
+# Display Introduction Text
 def displayIntro():
-    print("Welcome to my tax calculator")
+    print("Welcome to my tax calculator!")
 
-
+# Tax Calculation. Returns 15% of the value to tax parameter.
 def applyTax(valueToTax):
-    value = valueTotalTax
+    taxRate = 0.15
+    value = valueToTax * taxRate
+    return value
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
