@@ -66,6 +66,7 @@ def main():
     # Declaration of numberOfTrees variable with input of a integer value via keyboard and used \n to have a space line
     numberOfTrees = int(input("\nEnter the number of trees: "))
 
+
     # Declaration of baseLabourCharge variable with fixed value
     baseLabourCharge = 1000
 
