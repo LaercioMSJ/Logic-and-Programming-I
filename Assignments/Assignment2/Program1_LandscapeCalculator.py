@@ -23,27 +23,36 @@
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
 
+
+def grassCostSelection(grass):
+    # Declaration of costPerSquareFootFescue variable with fixed value
+    costPerSquareFootFescue = 0.05
+
+    # Declaration of costPerSquareFootBentgrass variable with fixed value
+    costPerSquareFootBentgrass = 0.02
+
+    # Declaration of costPerSquareFootCampus variable with fixed value
+    costPerSquareFootCampus = 0.01
+
+
+    if grass == "fescue":
+        return costPerSquareFootFescue
+
+    elif  grass == "bentgrass":
+        return costPerSquareFootBentgrass
+
+    elif grass == "campus":
+        return costPerSquareFootCampus
+
+    else:
+        print("\nThe type of grass you entered is incorrect. Try again.")
+        return 0
+
+
+
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
-
-
-
-
-    def grassCost(grass):
-        if grass == "fescue":
-            return costPerSquareFootFescue
-
-        elif  grass == "bentgrass":
-            return costPerSquareFootBentgrass
-
-        elif grass == "campus":
-            return costPerSquareFootCampus
-
-        else:
-            print("\nThe type of grass you entered is incorrect. Try again.")
-            return 0
-
 
 
     # Show program title and use \n to have a space line
@@ -52,7 +61,7 @@ def main():
 
     # INPUT
     # Declaration of houseNumber variable with input of a string via keyboard and used \n to have a space line
-    houseNumber = input("\nEnter House Number: ")
+    houseNumber = int(input("\nEnter House Number: "))
 
     # Declaration of propertyDepth variable with input of a float value via keyboard and used \n to have a space line
     propertyDepth = float(input("\nEnter property depth (feet): "))
@@ -76,15 +85,6 @@ def main():
     # Declaration of surfaceTaxExceeded variable with fixed value
     surfaceTaxExceeded = 500
 
-    # Declaration of costPerSquareFootFescue variable with fixed value
-    costPerSquareFootFescue = 0.05
-
-    # Declaration of costPerSquareFootBentgrass variable with fixed value
-    costPerSquareFootBentgrass = 0.02
-
-    # Declaration of costPerSquareFootCampus variable with fixed value
-    costPerSquareFootCampus = 0.01
-
     # Declaration of costPerTree variable with fixed value
     costPerTree = 100
 
@@ -97,7 +97,7 @@ def main():
 
 
 
-    totalCost = (totalSurface * grassCost(typeOfGrass)) + (numberOfTrees * costPerTree) + baseLabourCharge
+    totalCost = (totalSurface * grassCostSelection(typeOfGrass)) + (numberOfTrees * costPerTree) + baseLabourCharge
 
 
 
@@ -112,7 +112,7 @@ def main():
     # Program shows on-screen the sentence contained within the quotation marks, the string contained in
     #  the variable houseNumber, and the value contained in the variable totalCost.
     # The format method is used to return the formatted string and used \n to have a space line.
-    print("\nTotal cost for house " + houseNumber + " is: ${0:.2f}".format(totalCost))
+    print("\nTotal cost for house {0:.0f} is: ${1:.2f}".format(houseNumber, totalCost))
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
