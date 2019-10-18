@@ -3,7 +3,7 @@
 #
 # Date: XX October 2019
 #
-# Author: Laercio M da Silva Junior - W0433181.
+# Author: Laercio M da Silva Junior - W0433181
 ###########################################
 
 def main():

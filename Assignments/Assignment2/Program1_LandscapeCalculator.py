@@ -18,13 +18,19 @@
 # Your solution must contain examples demonstrating your understanding of
 #  appropriate use of functions and core assignment concepts (decision structures).
 #
-# Date: 13 October 2019
+# Date: 17 October 2019
 #
-# Author: Laercio M da Silva Junior - W0433181.
+# Author: Laercio M da Silva Junior - W0433181
 ###########################################
 
 
-def grassCostSelection(grass):
+# This function multiplies two values and return the result
+def multiplierFunction (value1, value2):
+    return value1 * value2
+
+
+# This function selects the grass cost per square foot based on type of grass and returns the selected value
+def grassCostSelection (grass):
     # Declaration of costPerSquareFootFescue variable with fixed value
     costPerSquareFootFescue = 0.05
 
@@ -34,7 +40,7 @@ def grassCostSelection(grass):
     # Declaration of costPerSquareFootCampus variable with fixed value
     costPerSquareFootCampus = 0.01
 
-
+    # Select grass cost per square foot based on type of grass entered
     if grass == "fescue":
         return costPerSquareFootFescue
 
@@ -45,9 +51,9 @@ def grassCostSelection(grass):
         return costPerSquareFootCampus
 
     else:
+        # Program shows on-screen the error message contained within the quotation marks if the type of grass is incorrect
         print("\nThe type of grass you entered is incorrect. Try again.")
         return 0
-
 
 
 def main():
@@ -60,7 +66,7 @@ def main():
 
 
     # INPUT
-    # Declaration of houseNumber variable with input of a string via keyboard and used \n to have a space line
+    # Declaration of houseNumber variable with input of a integer value via keyboard and used \n to have a space line
     houseNumber = int(input("\nEnter House Number: "))
 
     # Declaration of propertyDepth variable with input of a float value via keyboard and used \n to have a space line
@@ -70,12 +76,13 @@ def main():
     propertyWidth = float(input("\nEnter property width (feet): "))
 
     # Declaration of typeOfGrass variable with input of a string via keyboard and used \n to have a space line
-    typeOfGrass = input("\nEnter type of grass (fescue, bentgrass, campus): ").lower()
+    typeOfGrass = str(input("\nEnter type of grass (fescue, bentgrass, campus): ").lower())
 
     # Declaration of numberOfTrees variable with input of a integer value via keyboard and used \n to have a space line
     numberOfTrees = int(input("\nEnter the number of trees: "))
 
 
+    # Declaration of variables
     # Declaration of baseLabourCharge variable with fixed value
     baseLabourCharge = 1000
 
@@ -88,24 +95,27 @@ def main():
     # Declaration of costPerTree variable with fixed value
     costPerTree = 100
 
+    # Declaration of totalSurface variable with 0
+    totalSurface = 0
+
+    # Declaration of totalCost variable with 0
+    totalCost = 0
 
 
     # PROCESS
+    # Call the multiplierFunction to calculate totalSurface based on propertyDepth and propertyWidth
+    totalSurface = multiplierFunction (propertyDepth, propertyWidth)
 
-    totalSurface = propertyDepth * propertyWidth
+    # Call the multiplierFunction to calculate totalCost based on totalSurface, selected grass cost, numberOfTrees and costPerTree
+    totalCost = multiplierFunction (totalSurface, grassCostSelection (typeOfGrass))
+    totalCost += multiplierFunction (numberOfTrees, costPerTree)
 
+    # Add baseLabourCharge to totalCost
+    totalCost += baseLabourCharge
 
-
-
-    totalCost = (totalSurface * grassCostSelection(typeOfGrass)) + (numberOfTrees * costPerTree) + baseLabourCharge
-
-
-
+    # Add surfaceTaxExceeded to totalCost if totalSurface greater than maximumSurfaceWithoutFee(5000)
     if totalSurface > maximumSurfaceWithoutFee:
         totalCost += surfaceTaxExceeded
-
-
-
 
 
     # OUTPUT
