@@ -22,6 +22,63 @@
 ###########################################
 
 
+# This function selects the multiplier factor based on gender and age, and returns the selected value
+def multiplierFactorSelection (gender, age):
+    # Declaration of variables
+    # Declaration of multiplierFactorMale variables with fixed values
+    multiplierFactorMale1 = 0.25
+    multiplierFactorMale2 = 0.17
+    multiplierFactorMale3 = 0.10
+
+    # Declaration of multiplierFactorFemale variables with fixed values
+    multiplierFactorFemale1 = 0.20
+    multiplierFactorFemale2 = 0.15
+    multiplierFactorFemale3 = 0.10
+
+    # Declaration of ageRange variables with fixed values
+    ageRange1 = 15
+    ageRange2 = 25
+    ageRange3 = 40
+    ageRange4 = 70
+
+    # Select multiplierFactor based on gender and age entered and return it
+    if gender == "male":
+        if age >= ageRange1 and age < ageRange2:
+            return multiplierFactorMale1
+
+        elif age >= ageRange2 and age < ageRange3:
+            return multiplierFactorMale2
+
+        elif age >= ageRange3 and age < ageRange4:
+            return multiplierFactorMale3
+        
+        else:
+            # Program shows on-screen the error message contained within the quotation marks if the age is incorrect
+            print("\nThe age you entered is incorrect. Try again.")
+            return 0
+
+    # Select multiplierFactor based on gender and age entered and return it
+    elif gender == "female":
+        if age >= ageRange1 and age < ageRange2:
+            return multiplierFactorFemale1
+
+        elif age >= ageRange2 and age < ageRange3:
+            return multiplierFactorFemale2
+
+        elif age >= ageRange3 and age < ageRange4:
+            return multiplierFactorFemale3
+
+        else:
+            # Program shows on-screen the error message contained within the quotation marks if the age is incorrect
+            print("\nThe age you entered is incorrect. Try again.")
+            return 0
+
+    else:
+        # Program shows on-screen the error message contained within the quotation marks if the gender is incorrect
+        print("\nThe gender you entered is incorrect. Try again.")
+        return 0
+
+
 # This function multiplies two values and return the result
 def multiplierFunction (value1, value2):
     return value1 * value2
@@ -43,32 +100,16 @@ def main():
 
     # INPUT
     # Declaration of gender variable with input of a string via keyboard and used \n to have a space line
-    gender = str(input("\nAre you 'Male' or 'Female': ").lower())
+    userGender = str(input("\nAre you 'Male' or 'Female': ").lower())
     
     # Declaration of age variable with input of a integer value via keyboard and used \n to have a space line
-    age = int(input("\nEnter your age: "))
+    userAge = int(input("\nEnter your age: "))
 
     # Declaration of priceOfTheVehicle variable with input of a float value via keyboard and used \n to have a space line
     priceOfTheVehicle = float(input("\nEnter the purchase price of the vehicle: "))
 
 
     # Declaration of variables
-    # Declaration of multiplierFactorMale variables with fixed values
-    multiplierFactorMale1 = 0.25
-    multiplierFactorMale2 = 0.17
-    multiplierFactorMale3 = 0.10
-
-    # Declaration of multiplierFactorFemale variables with fixed values
-    multiplierFactorFemale1 = 0.20
-    multiplierFactorFemale2 = 0.15
-    multiplierFactorFemale3 = 0.10
-
-    # Declaration of ageRange variables with fixed values
-    ageRange1 = 15
-    ageRange2 = 25
-    ageRange3 = 40
-    ageRange4 = 70
-
     # Declaration of months variable with 12 months
     months = 12
 
@@ -77,48 +118,8 @@ def main():
 
 
     # PROCESS
-    # Select multiplierFactor based on gender and age entered
-    if gender == "male":
-        if age >= ageRange1 and age < ageRange2:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorMale1), months)
-
-        elif age >= ageRange2 and age < ageRange3:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorMale2), months)
-
-        elif age >= ageRange3 and age < ageRange4:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorMale3), months)
-        
-        else:
-            # Program shows on-screen the error message contained within the quotation marks if the age is incorrect
-            print("\nThe age you entered is incorrect. Try again.")
-
-
-    # Select multiplierFactor based on gender and age entered
-    elif gender == "female":
-        if age >= ageRange1 and age < ageRange2:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorFemale1), months)
-
-        elif age >= ageRange2 and age < ageRange3:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorFemale2), months)
-
-        elif age >= ageRange3 and age < ageRange4:
-            # Calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
-            monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorFemale3), months)
-
-        else:
-            # Program shows on-screen the error message contained within the quotation marks if the age is incorrect
-            print("\nThe age you entered is incorrect. Try again.")
-
-
-    else:
-        # Program shows on-screen the error message contained within the quotation marks if the gender is incorrect
-        print("\nThe gender you entered is incorrect. Try again.")
-
+    # Call three different functions to calculate monthlyInsurance based on multiplierFactor, priceOfTheVehicle and number of months
+    monthlyInsurance = dividerFunction (multiplierFunction (priceOfTheVehicle, multiplierFactorSelection (userGender, userAge)), months)
 
 
     # OUTPUT

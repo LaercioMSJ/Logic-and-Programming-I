@@ -106,7 +106,7 @@ def main():
     # Call the multiplierFunction to calculate totalSurface based on propertyDepth and propertyWidth
     totalSurface = multiplierFunction (propertyDepth, propertyWidth)
 
-    # Call the multiplierFunction to calculate totalCost based on totalSurface, selected grass cost, numberOfTrees and costPerTree
+    # Call the multiplierFunction twice to calculate totalCost based on totalSurface, selected grass cost, numberOfTrees and costPerTree
     totalCost = multiplierFunction (totalSurface, grassCostSelection (typeOfGrass))
     totalCost += multiplierFunction (numberOfTrees, costPerTree)
 

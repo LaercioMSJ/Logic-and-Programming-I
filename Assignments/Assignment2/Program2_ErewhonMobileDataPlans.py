@@ -23,6 +23,41 @@
 ###########################################
 
 
+# This function selects the rate of charge based on totalDataUsage and returns the selected or calculated value
+def rateOfChargeSelection (totalDataUsage):
+    # Declaration of variables
+    # Declaration of dataUsage_Rage variables with fixed values
+    dataUsage_Rage1 = 200
+    dataUsage_Rage2 = 500
+    dataUsage_Rage3 = 1000
+    
+    # Declaration of rateOfCharge_FlatRate variables with fixed values
+    rateOfCharge_FlatRate1 = 20.00
+    rateOfCharge_FlatRate2 = 118.00
+
+    # Declaration of rateOfCharge_PerMb variables with fixed values
+    rateOfCharge_PerMb1 = 0.105
+    rateOfCharge_PerMb2 = 0.110
+
+    # Calculate totalCharge based on dataUsage, dataUsage_Rage and rateOfCharge_FlatRate or rateOfCharge_PerMb
+    if totalDataUsage <= dataUsage_Rage1:
+        return rateOfCharge_FlatRate1
+
+    elif totalDataUsage > dataUsage_Rage1 and totalDataUsage <= dataUsage_Rage2:
+        return multiplierFunction (rateOfCharge_PerMb1, totalDataUsage)
+
+    elif totalDataUsage > dataUsage_Rage2 and totalDataUsage <= dataUsage_Rage3:
+        return multiplierFunction (rateOfCharge_PerMb2, totalDataUsage)
+
+    elif totalDataUsage > dataUsage_Rage3:
+        return rateOfCharge_FlatRate2
+        
+    else:
+        # Program shows on-screen the error message contained within the quotation marks if the dataUsage is incorrect
+        print("\nThe data usage you entered is incorrect. Try again.")
+        return 0
+
+
 # This function multiplies two values and return the result
 def multiplierFunction (value1, value2):
     return value1 * value2
@@ -41,42 +76,13 @@ def main():
     # Declaration of dataUsage variable with input of a float value via keyboard and used \n to have a space line
     dataUsage = float(input("\nEnter data usage (Mb): "))
 
-
-    # Declaration of variables
-    # Declaration of dataUsage_Rage variables with fixed values
-    dataUsage_Rage1 = 200
-    dataUsage_Rage2 = 500
-    dataUsage_Rage3 = 1000
-    
-    # Declaration of rateOfCharge_FlatRate variables with fixed values
-    rateOfCharge_FlatRate1 = 20.00
-    rateOfCharge_FlatRate2 = 118.00
-
-    # Declaration of rateOfCharge_PerMb variables with fixed values
-    rateOfCharge_PerMb1 = 0.105
-    rateOfCharge_PerMb2 = 0.110
-
     # Declaration of totalCharge variable with 0
     totalCharge = 0
 
 
     # PROCESS
-    # Calculate totalCharge based on dataUsage, dataUsage_Rage and rateOfCharge_FlatRate or rateOfCharge_PerMb
-    if dataUsage <= dataUsage_Rage1:
-        totalCharge = rateOfCharge_FlatRate1
-
-    elif dataUsage > dataUsage_Rage1 and dataUsage <= dataUsage_Rage2:
-        totalCharge = multiplierFunction (rateOfCharge_PerMb1, dataUsage)
-
-    elif dataUsage > dataUsage_Rage2 and dataUsage <= dataUsage_Rage3:
-        totalCharge = multiplierFunction (rateOfCharge_PerMb2, dataUsage)
-
-    elif dataUsage > dataUsage_Rage3:
-        totalCharge = rateOfCharge_FlatRate2
-        
-    else:
-        # Program shows on-screen the error message contained within the quotation marks if the dataUsage is incorrect
-        print("\nThe data usage you entered is incorrect. Try again.")
+    # Call the rateOfChargeSelection to select or to calculate totalCharge based on dataUsage
+    totalCharge = rateOfChargeSelection (dataUsage)
 
 
     # OUTPUT
