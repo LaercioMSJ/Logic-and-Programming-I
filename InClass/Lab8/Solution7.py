@@ -1,32 +1,32 @@
 ###########################################
-# Desc: Given a list of integers with a length of 3, return the sum of all the elements.
+# Desc: Given an integer list of length 2, return True if it contains a 2 or a 3.
 #
 # Sample function calls & results:
-# SumList([1, 2, 3]) → 6
-# SumList ([5, 11, 2]) → 18
-# SumList ([7, 0, 0]) → 7
+# Has2Or3 ([2, 5]) → True
+# Has2Or3 ([4, 3]) → True
+# Has2Or3 ([4, 5]) → False
 #
 # Date: 27 October 2019
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
 
-def sumList(valueList):
-    return valueList[0] + valueList[1] + valueList[2]
+def has2Or3(valueList):
+    return (2 in valueList or 3 in valueList)
 
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
     # INPUT
-    numberList = [7,0,1]
+    numberList = [7,2]
 
     # PROCESS
 
-    sumOfAllTheElements = sumList(numberList)
+    result = has2Or3(numberList)
 
     # OUTPUT
-    print("\nThe sum of all the elements is " + str(sumOfAllTheElements))
+    print("\nThe list contains a 2 or a 3: " + str(result))
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":

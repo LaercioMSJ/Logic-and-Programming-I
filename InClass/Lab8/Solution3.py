@@ -30,7 +30,7 @@ def main():
     middleElementsList = MidleList (numberList1, numberList2)
 
     # OUTPUT
-    print("MiddleElements list " + str(middleElementsList))
+    print("\nMiddleElements list " + str(middleElementsList))
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":

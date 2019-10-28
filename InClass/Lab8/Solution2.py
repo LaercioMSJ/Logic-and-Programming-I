@@ -28,7 +28,7 @@ def main():
     numberList = reverseOrder(numberList)
 
     # OUTPUT
-    print("A new list with the elements in reverse order " + str(numberList))
+    print("\nA new list with the elements in reverse order " + str(numberList))
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.

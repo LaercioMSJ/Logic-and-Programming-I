@@ -30,7 +30,7 @@ def main():
     result = FirstOrLast7(numberList)
 
     # OUTPUT
-    print("7 appears as either the first or last element in the list? " + str(result))
+    print("\n7 appears as either the first or last element in the list? " + str(result))
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
