@@ -1,13 +1,13 @@
 ###########################################
-# Desc: Write programs that read a line of input as a string and print:
+# Desc: Write a program that reads a set of floating-point\
+#  values. Ask the user to enter the values, then print:
 # 
-# Only the uppercase letters in the string.
-# Every second letter of the string.
-# The string, with all vowels replaced by an underscore.
-# The number of digits in the string.
-# The positions of all vowels in the string.
+# The average of the values
+# The smallest of the values
+# The largest of the values
+# The range, that is the difference between the smallest and largest
 #
-# Date: 28 October 2019
+# Date: 29 October 2019
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
@@ -17,8 +17,18 @@ def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
+
     # INPUT
-    chosenString = str(input("\nPlease, enter a string: "))
+    setOfFloating = []
+    chosenFloating = " "
+
+    while chosenFloating.upper() !="DONE":
+        x += 1
+        chosenFloating = input("\nPlease, enter the " + str(x) + "° floating-point value (enter DONE if no more names): "))
+        if chosenFloating.upper() != "DONE":
+            setOfFloating.append (float(chosenFloating))
+
+
     uppercaseLetters = ""
 
     secondLetter = ""
@@ -28,11 +38,25 @@ def main():
 
     digitsInTheString = 0
 
-    allVowelsInTheString = ""
+    allVowelsInTheString = []
     vowels = "aeiouAEIOU"
     position = 0
 
     # PROCESS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     x = 0
     while (x < len(chosenString)):
         if chosenString[x] != chosenString[x].lower():
@@ -81,23 +105,21 @@ def main():
     for char in chosenString:
         if char in vowels:
             position = x
-            print(char, position)
+            allVowelsInTheString.append (str(char) + " - " + str(position))
 
         x += 1
 
 
     # OUTPUT
-    print("\nOnly the uppercase letters in the string: " + str(uppercaseLetters))
+    print("\nThe average of the values: " + str(averageOfTheValues))
 
-    print("\nEvery second letter of the string: " + str(secondLetter))
+    print("\nThe smallest of the values: " + str(smallestOfTheValues))
 
-    print("\nThe string, with all vowels replaced by an underscore: " + str(allVowelsReplaced))
+    print("\nThe largest of the values: " + str(largestOfTheValues))
 
-    print("\nThe number of digits in the string: " + str(digitsInTheString))
+    print("\nThe range, that is the difference between the smallest and largest: " + str(rangeOfTheValues))
 
-    print("\nThe positions of all vowels in the string: " + str(allVowelsInTheString))
-
-    print("\nThe chosen string: " + str(chosenString))
+    print("\nThe chosen floating values: " + str(setOfFloating))
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.

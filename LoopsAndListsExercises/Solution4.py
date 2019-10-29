@@ -19,7 +19,7 @@ def main():
     integerInputs = []
 
     for counter in range(10):
-        integerInputs.append (int(input("\nPlease, enter a integer number: ")))
+        integerInputs.append (int(input("\nPlease, enter the " + str(counter+1) + "° integer number: ")))
 
 
     totalOfOddNumbers = 0
