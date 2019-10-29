@@ -30,12 +30,15 @@ def main():
 
 
     # PROCESS
-    for counter in range(10):
-        if (integerInputs[counter] % 2) == 1:
+    x = 0
+    while (x < len(integerInputs)):
+        if (integerInputs[x] % 2) == 1:
             totalOfOddNumbers += 1
 
         else:
             totalOfEvenNumbers += 1
+
+        x += 1
 
     
     cumulativeTotals.append (integerInputs[0])
@@ -45,17 +48,17 @@ def main():
         x += 1
 
 
+    x = 0
+    while (x < len(integerInputs)):
+        if (x+2) < len(integerInputs):
+            if (integerInputs[x] == integerInputs[x+1]) and (integerInputs[x] != integerInputs[x+2]):
+                adjacentDuplicatesNumbers.append (integerInputs[x])
+        
+        elif (x+1) < len(integerInputs):
+            if integerInputs[x] == integerInputs[x+1]:
+                adjacentDuplicatesNumbers.append (integerInputs[x])
 
-
-
-
-
-    #X = 1
-    #while x < len(adjacentDuplicatesNumbers):
-    #    if adjacentDuplicatesNumbers[x] != adjacentDuplicatesNumbers[x-1]:
-    #        adjacentDuplicatesNumbers.pop(x)
-    #    x -= 1  
-    #x += 1
+        x += 1
 
 
     # OUTPUT
@@ -65,7 +68,7 @@ def main():
 
     print("\nCumulative totals is: " + str(cumulativeTotals))
 
-    print("\nCumulative totals is: " + str(integerInputs))
+    print("\nAll adjacent duplicates are: " + str(adjacentDuplicatesNumbers))
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
