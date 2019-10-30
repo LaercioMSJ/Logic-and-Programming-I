@@ -21,19 +21,21 @@ def main():
     # INPUT
     setOfFloating = []
     chosenFloating = " "
+    b = True
 
     x = 0
     while chosenFloating.upper() !="DONE":
         x += 1
         chosenFloating = input("\nPlease, enter the " + str(x) + "° floating-point value (enter DONE if no more names): ")
-        if chosenFloating.upper() != "DONE":
-            for char in chosenFloating:
-                if char in "1234567890.":
-                    b = True
-                else:
-                    continue
 
-            setOfFloating.append (float(chosenFloating))
+        for char in chosenFloating:
+            if char in "1234567890.":
+                continue
+            else:
+                b = False
+
+        if (b == True and chosenFloating.upper() != "DONE"):
+                setOfFloating.append (float(chosenFloating))
 
 
     averageOfTheValues = 0.0
@@ -53,9 +55,9 @@ def main():
 
     averageOfTheValues = sumOfTheValues/len(setOfFloating)
 
-
+ 
     # OUTPUT
-    print("\nThe average of the values: " + str(averageOfTheValues))
+    print("\nThe average of the values: {0:.2f}".format(averageOfTheValues))
 
     print("\nThe smallest of the values: " + str(smallestOfTheValues))
 
