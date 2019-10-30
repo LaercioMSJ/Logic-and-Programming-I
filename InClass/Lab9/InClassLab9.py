@@ -35,8 +35,8 @@ def main():
 
 
     for counter in range(5):
-        for ctr in range(1):
-            print(matrix[ctr] , end = "\t")
+        for ctr in range(5):
+            print(matrix[counter][ctr] , end = "\t")
         print()
     
     # OUTPUT

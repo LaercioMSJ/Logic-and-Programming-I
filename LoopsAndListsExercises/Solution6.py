@@ -7,7 +7,7 @@
 # The largest of the values
 # The range, that is the difference between the smallest and largest
 #
-# Date: 29 October 2019
+# Date: 30 October 2019
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
@@ -29,7 +29,7 @@ def main():
         chosenFloating = input("\nPlease, enter the " + str(x) + "° floating-point value (enter DONE if no more names): ")
 
         for char in chosenFloating:
-            if char in "1234567890.":
+            if char in "1234567890.-+":
                 continue
             else:
                 b = False
@@ -55,13 +55,17 @@ def main():
 
     averageOfTheValues = sumOfTheValues/len(setOfFloating)
 
+
+    # range
+    rangeOfTheValues = max(setOfFloating) - min(setOfFloating)
+
  
     # OUTPUT
     print("\nThe average of the values: {0:.2f}".format(averageOfTheValues))
 
-    print("\nThe smallest of the values: " + str(smallestOfTheValues))
+    print("\nThe smallest of the values: " + str(min(setOfFloating)) )
 
-    print("\nThe largest of the values: " + str(largestOfTheValues))
+    print("\nThe largest of the values: " + str(max(setOfFloating)) )
 
     print("\nThe range, that is the difference between the smallest and largest: " + str(rangeOfTheValues))
 
