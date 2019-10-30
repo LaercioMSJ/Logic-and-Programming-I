@@ -24,7 +24,7 @@ def main():
     secondLetter = ""
 
     allVowelsReplaced = ""
-    upperAllLetters = ""
+    # upperAllLetters = ""
 
     digitsInTheString = 0
 
@@ -48,7 +48,7 @@ def main():
             b = True
         
         elif (x+1) < len(chosenString):
-            if (chosenString[x] != " " and b == True and chosenString[x+1] != " "):
+            if (chosenString[x] != " " and b == True and chosenString[x+1] != " " and chosenString[x+1].isalpha() ):
                 secondLetter += chosenString[x+1]
                 b = False
         
@@ -57,15 +57,24 @@ def main():
 
     x = 0
     while (x < len(chosenString)):
-        upperAllLetters += chosenString[x].upper()
-
-        if (upperAllLetters[x] == "A" or upperAllLetters[x] == "E" or upperAllLetters[x] == "I" or upperAllLetters[x] == "O" or upperAllLetters[x] == "U"):
+        if (chosenString[x] in vowels):
             allVowelsReplaced += "_"
 
         else:
             allVowelsReplaced += (chosenString[x])
         
         x += 1
+    # x = 0
+    # while (x < len(chosenString)):
+    #     upperAllLetters += chosenString[x].upper()
+
+    #     if (upperAllLetters[x] == "A" or upperAllLetters[x] == "E" or upperAllLetters[x] == "I" or upperAllLetters[x] == "O" or upperAllLetters[x] == "U"):
+    #         allVowelsReplaced += "_"
+
+    #     else:
+    #         allVowelsReplaced += (chosenString[x])
+        
+    #     x += 1
 
 
     x = 0
@@ -101,7 +110,7 @@ def main():
 
     print("\nThe number of digits in the string: " + str(digitsInTheString))
 
-    print("\nThe positions of all vowels in the string: " + str(allVowelsInTheString))
+    print("\nThe positions of all vowels in the string (it starts in 0): " + str(allVowelsInTheString))
 
     print("\nThe chosen string: " + str(chosenString))
 
