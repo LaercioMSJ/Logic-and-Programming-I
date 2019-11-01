@@ -10,11 +10,11 @@ def getHighestCommonDivisor(value1, value2):
 
     listValues = [value1, value2]
 
-    lowerValue = int(min(listValues))
+    lowestValue = int(min(listValues))
     highestValue = int(max(listValues))
-    controller = lowerValue
+    controller = lowestValue
 
-    while ((highestValue % controller != 0) and (lowerValue % controller != 0)):
+    while ((highestValue % controller != 0) or (lowestValue % controller != 0)):
         controller -= 1
 
     return controller
@@ -58,7 +58,6 @@ def main():
         print("The Highest Common Divisor of {0:.0f} and {1:.0f} is {2:.0f}".format(int(firstNumber), int(secondNumber), int(highestCommonDivisor)))
 
         tryAgain = input("\nWould you like to try again? (y/n) ")
-
     
     print("\nThank you for using the HCD program.")
 
