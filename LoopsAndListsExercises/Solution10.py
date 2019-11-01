@@ -1,14 +1,7 @@
 ###########################################
-# Desc: Write a program that initializes a list with ten
-#  random integers and then prints four lines of output,
-#  containing:
-# 
-# Every element at an even index.
-# Every even element.
-# All elements in reverse order.
-# Only the first and last element.
+# Desc: 
 #
-# Date: 01 November 2019 2019
+# Date: 01 November 2019
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
