@@ -9,55 +9,55 @@
 def getHighestCommonDivisor(value1, value2):
 
     listValues = [value1, value2]
+    controller = min(listValues)
 
-    lowestValue = int(min(listValues))
-    highestValue = int(max(listValues))
-    controller = lowestValue
-
-    while ((highestValue % controller != 0) or (lowestValue % controller != 0)):
+    while ((max(listValues) % controller != 0) or (min(listValues) % controller != 0)):
         controller -= 1
 
     return controller
+
+
+def inValid (value):
+    b = True
+    while b == True:
+
+        numberInteger = input("Enter the " + value + " number: ")
+        if numberInteger.isnumeric():
+            break
+        else:
+            print("ERROR! Enter a valid " + value + " number.")
+    
+    return numberInteger
 
 
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
-    tryAgain = "y"
+    tryAgain = "Y"
 
-    while tryAgain == "y":
+    while tryAgain == "Y":
 
         # INPUT
-        b = True
+        firstNumber = int(inValid("first"))
 
-        while b == True:
-            
-            firstNumber = input("\nEnter the first number: ")
-            if firstNumber.isnumeric():
-                break
-            else:
-                print("ERROR! Enter a valid first number.")
-                b = True
-                continue
-
-        while b == True:
-
-            secondNumber = input("\nEnter the second number: ")
-            if secondNumber.isnumeric():
-                break
-            else:
-                print("ERROR! Enter a valid second number.")
-                b = True
-                continue
+        secondNumber = int(inValid("second"))
 
         # PROCESS
         highestCommonDivisor = getHighestCommonDivisor (firstNumber, secondNumber)
             
         # OUTPUT
-        print("The Highest Common Divisor of {0:.0f} and {1:.0f} is {2:.0f}".format(int(firstNumber), int(secondNumber), int(highestCommonDivisor)))
+        print("The Highest Common Divisor of {0} and {1} is {2}".format(firstNumber, secondNumber, highestCommonDivisor))
 
-        tryAgain = input("\nWould you like to try again? (y/n) ")
+        b = True
+        while b == True:
+
+            tryAgain = input("\nWould you like to try again? (y/n) ").upper()
+
+            if tryAgain == "Y" or tryAgain == "N":
+                break
+            else:
+                print("ERROR! Enter a valid letter.")
     
     print("\nThank you for using the HCD program.")
 

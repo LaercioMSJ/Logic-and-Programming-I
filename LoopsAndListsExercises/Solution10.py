@@ -1,12 +1,37 @@
 ###########################################
-# Desc: 
+# Desc: Write list functions that carry out the following tasks for
+#  a list of integers. For each function, provide a test program.
+# 
+# 1 - Swap the first and last elements in the list.
 #
-# Date: 01 November 2019
+# 2 - Shift all elements by one to the right and move the last element
+#  into the first position. For example, 1 4 9 16 25 would be transformed
+#  into 25 1 4 9 16.
+#
+# 3 - Replace all even elements with 0.
+#
+# 4 - Replace each element except the first and last by the larger of its
+#  two neighbors.
+#
+# 5 - Remove the middle element if the list length is odd, or the middle
+#  two elements if the length is even.
+#
+# 6 - Move all even elements to the front, otherwise preserving the order
+#  of the elements.
+#
+# 7 - Return the second-largest element in the list.
+#
+# 8 - Return true if the list is currently sorted in increasing order.
+#
+# 9 - Return true if the list contains two adjacent duplicate elements.
+#
+# 10 - Return true if the list contains duplicate elements (which need
+#  not be adjacent).
+#
+# Date: 03 November 2019
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
-
-import random
 
 def main():
     # Main function for execution of program code.

@@ -9,58 +9,29 @@
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
 
-import random
-
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
 
     # INPUT
-    listOfRandomIntegers = []
+    listOfNumbers = []
 
-    for counter in range(10):
-        listOfRandomIntegers.append (random.randint(1, 100))
+    while 10 > len(listOfNumbers):
+        inputedValue = input("\nPlease, enter a number: ")
 
-    elementsAtAnEvenIndex = []
+        if inputedValue.isnumeric():
 
-    evenElements = []
+            valueCounter = listOfNumbers.count (int(inputedValue))
 
-    elementsInReverseOrder = []
+            if valueCounter == 0:
+                listOfNumbers.append (int(inputedValue))
 
-    firstElement = 0
-    lastElement = 0
-    
 
     # PROCESS
-    for ctr in range(0, 10, 2):
-        elementsAtAnEvenIndex.append (listOfRandomIntegers[ctr])
 
-
-    for i in range(10):
-        if listOfRandomIntegers[i] % 2 == 0:
-            evenElements.append (listOfRandomIntegers[i])
-
-
-    elementsInReverseOrder = elementsInReverseOrder + listOfRandomIntegers
-    elementsInReverseOrder.reverse()
-
-
-    firstElement = listOfRandomIntegers[0]
-    lastElement = listOfRandomIntegers[-1]
-    
-
- 
     # OUTPUT
-    print("\nThe list with ten random integers: " + str(listOfRandomIntegers))
-
-    print("\nEvery element at an even index: " + str(elementsAtAnEvenIndex))
-
-    print("\nEvery even element: " + str(evenElements))
-
-    print("\nAll elements in reverse order: " + str(elementsInReverseOrder))
-
-    print("\nOnly the first and last element: " + str(firstElement), str(lastElement))
+    print("\nThe list contains ten different numbers: " + str(listOfNumbers))
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
