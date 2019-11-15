@@ -32,7 +32,7 @@ def main():
                 initialHitPointInt = int(initialHitPoint)
 
             except ValueError:
-                print("You do not listen very well do you? Think you are going to survive this dungeon?")
+                initialHitPointInt = -1
 
 
             if (initialHitPointInt > 0 and initialHitPointInt < 201):
@@ -42,7 +42,7 @@ def main():
 
         print("=" * 80)
 
-        points = 0
+        points = initialHitPointInt
 
 
         fileName="TC6_monsters.csv"
@@ -50,12 +50,17 @@ def main():
         with open(fileName, accessMode) as myCSVFile:
             dataFromFile=csv.reader(myCSVFile)
             for row in dataFromFile:
-                print (', '.join(row))
-                print ("You were attacked by a " + str(row) + "with a " + str(row) + " attack for " + str(row) + " damage. Current hit points: " + points)
+                points -= int(row[2])
+                
+                if points < 0:
+                    points = 0
+                    
+                print ("You were attacked by a " + str(row[0]) + " with a " + str(row[1]) + " attack for " + str(row[2]) + " damage. Current hit points: " + str(points))
 
+                if points == 0:
+                    break
 
-
-        print("Welcome to the Dungeon Attack application where none shall survive! Simply try to live as long as you can.")
+        print("\nWelcome to the Dungeon Attack application where none shall survive! Simply try to live as long as you can.")
         keyToQuit = input("Hit any key to continue ('Q' or 'q' to quit): ").upper()
 
 
