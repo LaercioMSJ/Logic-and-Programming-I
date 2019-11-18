@@ -38,41 +38,21 @@
 ###########################################
 
 
-
-# list or string (originalText)? 2 d list é necessario? try error é preciso?  posso usar fileName e accessMode mais de uma vez com o mesmo nome ou usar o nome do arquivo direto?
+# list or string (originalText)? 2 d list é necessario? try error é preciso?
 
 import random
+import csv
 
-def textAlterer (text):
 
-    newText = []
-    lineOfText = ""
-    lineNumber = 1
-    charPerLine = 0
+def caseAlterer (text):
+
     charLineLimit = 20
 
-    for char in text:
+    if charLineLimit < len(text):
+        return text.lower()
 
-        if char != "\n":
-            lineOfText += char
-            charPerLine += 1
-
-        elif (charPerLine > charLineLimit and char == "\n"):
-            newText.append (str(lineNumber) + ": " + lineOfText.lower())
-            lineNumber += 1
-            charPerLine = 0
-            lineOfText = ""
-
-        elif (charPerLine <= charLineLimit and char == "\n"):
-            newText.append (str(lineNumber) + ": " + lineOfText.upper())
-            lineNumber += 1
-            charPerLine = 0
-            lineOfText = ""
-
-    newText [random.randint (0, len(newText) - 1)] = ""
-
-    return newText
-
+    elif charLineLimit >= len(text):
+        return text.upper()
 
 
 def main():
@@ -81,18 +61,23 @@ def main():
 
 
     # INPUT
+    originalText = ""
+    alteredText = []
+    line = 1
 
     fileName = "ateam_Original.txt"
     accessMode = "r"
 
     with open(fileName, accessMode) as originalFile:
-        
-        originalText = (originalFile.read() + "\n")
 
+        for row in originalFile:
+            originalText += row
+            alteredText.append (str(line) + ": " + caseAlterer (row))
+            line += 1
 
     # PROCESS
 
-    alteredText = textAlterer (originalText)
+    alteredText [random.randint (0, len(alteredText) - 1)] = ""
 
 
     # OUTPUT
@@ -108,8 +93,6 @@ def main():
 
     for row in alteredText:
         print (row)
-
-
 
     fileName = "ateam_Altered.txt"
     accessMode = "w"

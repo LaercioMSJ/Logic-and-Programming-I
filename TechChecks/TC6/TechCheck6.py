@@ -17,47 +17,41 @@ def main():
         
  
     # PROCESS
-    print("Welcome to the Dungeon Attack application where none shall survive! Simply try to live as long as you can.")
+    print("\nWelcome to the Dungeon Attack application where none shall survive! Simply try to live as long as you can.")
     keyToQuit = input("Hit any key to continue ('Q' or 'q' to quit): ").upper()
 
     while keyToQuit != "Q":
 
-        initialHitPoint = ""
-        initialHitPointInt = 0
         controller = True
         while controller == True:
 
             try:
-                initialHitPoint = input("Please enter your initial hit points (1-200): ")
-                initialHitPointInt = int(initialHitPoint)
+                initialHitPoint = int(input("\nPlease enter your initial hit points (1-200): "))
 
             except ValueError:
-                initialHitPointInt = -1
+                initialHitPoint = -1
 
 
-            if (initialHitPointInt > 0 and initialHitPointInt < 201):
+            if (initialHitPoint > 0 and initialHitPoint < 201):
                 controller = False
             else:
                 print("You do not listen very well do you? Think you are going to survive this dungeon?")
 
-        print("=" * 80)
+        print("\n======================================================================================================\n")
 
-        points = initialHitPointInt
-
-
-        fileName="TC6_monsters.csv"
-        accessMode="r"
+        fileName = "TC6_monsters.csv"
+        accessMode = "r"
         with open(fileName, accessMode) as myCSVFile:
-            dataFromFile=csv.reader(myCSVFile)
+            dataFromFile = csv.reader(myCSVFile)
             for row in dataFromFile:
-                points -= int(row[2])
+                initialHitPoint -= int(row[2])
                 
-                if points < 0:
-                    points = 0
+                if initialHitPoint < 0:
+                    initialHitPoint = 0
                     
-                print ("You were attacked by a " + str(row[0]) + " with a " + str(row[1]) + " attack for " + str(row[2]) + " damage. Current hit points: " + str(points))
+                print ("You were attacked by a " + str(row[0]) + " with a " + str(row[1]) + " attack for " + str(row[2]) + " damage. Current hit points: " + str(initialHitPoint))
 
-                if points == 0:
+                if initialHitPoint == 0:
                     break
 
         print("\nWelcome to the Dungeon Attack application where none shall survive! Simply try to live as long as you can.")
