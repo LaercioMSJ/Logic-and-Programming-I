@@ -55,9 +55,12 @@
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
 
-# pseudocede precisa?  precisa usar try?
-
 import csv
+
+# This function replaces a word, if value1 equals value2, and return a word selected from a list
+def replaceFunction (value1, value2, list1):
+
+    return value1.replace(str(value2), list1[value2-1])
 
 
 def main():
@@ -67,8 +70,10 @@ def main():
     print("\nThe Itsy Bitsy Aardvark")
 
     # INPUT
-    listOFLetter = []
+    # Declaration of listOfChoices with empty
+    listOfChoices = []
 
+    # Open the the_choices_file.csv file with options to choose
     fileName = "the_choices_file.csv"
     accessMode = "r"
 
@@ -76,39 +81,45 @@ def main():
         
         dataFromFile = csv.reader(myCSVFile)
         
+        # FOR loop is used to repeat each row of the options file
         for row in dataFromFile:
             
+            # Program shows on-screen the options contained in each row, and "\ n" is used to arrange each word with a unique letter
             print ("\nPlease choose " + str(row[0]) + ": \na) " + str(row[1]) + "\nb) " + str(row[2]) + "\nc) " + str(row[3]) + "\nd) " + str(row[4]) + "\ne) " + str(row[5]))
             
+            # WHILE loop is used to take a user's input and validate it
             while True:
 
+                # Declaration of letter variable with input of a string via keyboard
                 letter = input("Enter choice (a-e): ").upper()
                 
+                # If statement is used to select only one word from each row of options file, and exit the loop if user input correctly
                 if letter == "A":
-                    listOFLetter.append (row[1].upper())
+                    listOfChoices.append (row[1].upper())
                     break
 
                 elif letter == "B":
-                    listOFLetter.append (row[2].upper())
+                    listOfChoices.append (row[2].upper())
                     break
 
                 elif letter == "C":
-                    listOFLetter.append (row[3].upper())
+                    listOfChoices.append (row[3].upper())
                     break
 
                 elif letter == "D":
-                    listOFLetter.append (row[4].upper())
+                    listOfChoices.append (row[4].upper())
                     break
 
                 elif letter == "E":
-                    listOFLetter.append (row[5].upper())
+                    listOfChoices.append (row[5].upper())
                     break
 
 
     # PROCESS
-
+    # Declaration of completedStory variable with empty
     completedStory = ""
 
+    # Open the the_story_file.txt file with a incomplete story, and save all the text in completedStory
     fileName = "the_story_file.txt"
     accessMode = "r"
 
@@ -117,26 +128,24 @@ def main():
         incompleteStory = myTXTFile.read()
         
 
-
-
+    # FOR loop is used to pass each row of the incompleteStory
     for row in incompleteStory:
 
+        # Replace all "_" with empty
         row = row.replace("_", "")
-        row = row.replace("1", listOFLetter[0])
-        row = row.replace("2", listOFLetter[1])
-        row = row.replace("3", listOFLetter[2])
-        row = row.replace("4", listOFLetter[3])
-        row = row.replace("5", listOFLetter[4])
-        row = row.replace("6", listOFLetter[5])
-        row = row.replace("7", listOFLetter[6])
 
+         # FOR loop is used to repeat the replaceFunction 7 times, and each time new values are sent to perform the function
+        for i in range (1,8):
+            row = replaceFunction (row, i, listOfChoices)
+
+        # Each changed row is saved in a new variable
         completedStory += row
 
 
     # OUTPUT
-
+    # Program shows on-screen sentence contained within quotation marks
     print ("\nYour Completed Story:\n")
-
+    # Program shows on-screen the completed story
     print (completedStory)
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.

@@ -64,17 +64,174 @@
 #
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
+#
+# PSEUDOCODE:
+# Open the map.txt file and save in a 2D list
+# Create a new 2D list to be the board
+# Request the coordenate to the user
+# Validate the coordinate,and if necessary, request the coordinate again
+# Compare the coordinate entered by the user with the game coordinates
+# If the coordinate is the same as a ship's coordinate, hit is incremented and "X" is added to the board.
+# If different coordinates, "O" is added to the board
+# The number of missiles is decreased
+# Show the board updated with the last user coordinates
+# Repeat the previous 7 tasks until the user hits all ships or the number of missiles goes to 0.
+# Show a victory message if user hits all ships, or a game over message if missiles go to 0
+#
+######################################################
+
+import csv
+
+
+# This function selects a number based on letters A-F,
+#  and returns the number between 1 and 11
+def letterValidation (value):
+    if value == "A":
+        return 1
+    elif value == "B":
+        return 2
+    elif value == "C":
+        return 3
+    elif value == "D":
+        return 4
+    elif value == "E":
+        return 5
+    elif value == "F":
+        return 6
+    elif value == "G":
+        return 7
+    elif value == "H":
+        return 8
+    elif value == "I":
+        return 9
+    elif value == "J":
+        return 10
+    else:
+        return 11
+
 
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.
 
+    print("\nLet's play Battleship!")
+
     # INPUT
+    # Declaration of variables and lists
+    missiles = 30
+    hits = 0
+    allShips = 17
+    board = []
+    mapOriginal = []
 
-    # PROCESS
 
-    # OUTPUT
-    print("Hello World")
+    # Open the map file with the coordenates of the ships, save all
+    #  information on mapOriginal 2Dlist and close the file
+    fileName = "map.txt"
+    accessMode = "r"
+
+    with open(fileName, accessMode) as myTXTFile:
+
+        mapFile = csv.reader(myTXTFile)
+
+        for row in mapFile:
+            mapOriginal.append (row)
+
+
+    # PROCESS AND OUTPUT
+    # Program shows on-screen the sentence contained within the quotation marks
+    print ("You have " + str(missiles) + " missiles to fire to sink all five ships.\n")
+
+    # Completes the entire board with the coordinates at the beginning of each
+    #  row and column, and adds empty to the rest of the board (a 2D list 11 per 11)
+    for row in range(11):
+        board.append(["  ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
+
+    board[0] = [" ", "A", "B", "C", "D","E", "F", "G", "H", "I", "J"]
+
+    for i in range(1,11):
+        board[i][0] = i
+
+
+    # WHILE loop is used to repeat each turn of the game
+    while True:
+
+        # FOR loop is used to shows on-screen the entire 2D list (board) neatly and updated every turn
+        for row in range (11):
+            for column in range (11):
+                print (board[row][column] , end = " ")
+            print()
+        print()
+
+        # WHILE loop is used to take a user's target and validate it
+        while True:
+
+            # Declaration of targetList with empty
+            targetList = []
+
+            # Declaration of target variable with input of a string via keyboard
+            target = str(input("Choose your target (Ex. A1): ")).upper()
+
+            # If user input nothing or more than 3 chars, repeat the loop
+            if ( (len(target)) > 3 or (len(target)) == 0 ):
+                continue
+
+            # Otherwise each char is added to targetList
+            else:
+                for char in target:
+                    targetList.append (char)
+
+            # If user input 3 chars, the third char is added to the second char (when user input the coordinate number 10)
+            if (len(target)) == 3:
+                targetList[1] += targetList[2]
+
+            # Call the letterValidation function to select a unique number for each letter using the first char that user input
+            letter = letterValidation (targetList[0])
+
+            # Try to change string to integer using the second char that user input, and in case of error repeat the loop
+            try:
+                number = int(targetList[1])
+            except:
+                continue
+
+            # If the first char that user input is a letter between A-F and the second char
+            #  that user input is a number between 1-10, exit the loop and execute the rest of the code
+            if (number > 0 and number < 11 and letter != 11):
+                break
+
+
+        # If the user's target is equals the coordinates of the file, so that same coordinate on the board gets "X", and the hits increment by 1 more
+        if mapOriginal[number - 1][letter - 1] == "1":
+            board[number][letter] = "X"
+            hits += 1
+            print ("HIT!!!!!")
+
+        # Otherwise that same coordinate on the board gets "O"
+        else:
+            board[number][letter] = "O"
+            print ("Miss")
+
+
+        # If user hits the correct ship coordinate 17 times (there are 5 ships occupying 17 coordinates in this game), the game ends, and the user wins
+        if hits == allShips:
+            print ("YOU SANK MY ENTIRE FLEET!")
+            print ("You had " + str(hits) + " of " + str(allShips) + " hits, which sank all the ships.")
+            print ("You won, congratulations!")
+            break
+
+
+        # Each turn the number of missiles is decreased by 1
+        missiles -= 1
+        print ("You have " + str(missiles) + " missiles remaining")
+
+
+        # When the number of missiles goes to 0 (30 turns in this game), the game ends and the user is defeated
+        if missiles == 0:
+            print ("GAME OVER.")
+            print ("You had " + str(hits) + " of " + str(allShips) + " hits, but didn't sink all the ships.")
+            print ("Better luck next time.")
+            break
+
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
 if __name__ == "__main__":
