@@ -77,7 +77,7 @@ def main():
 
     # PROCESS
 
-    alteredText [random.randint (0, len(alteredText) - 1)] = ""
+    alteredText [random.randint (0, len(alteredText) - 1)] = "\n"
 
 
     # OUTPUT
@@ -91,16 +91,18 @@ def main():
     print ("Altered Text")
     print ("-" * 34)
 
-    for row in alteredText:
-        print (row)
 
     fileName = "ateam_Altered.txt"
     accessMode = "w"
+    screen = ""
 
     with open(fileName, accessMode) as alteredFile:
         
         for row in alteredText:
-            alteredFile.write (row + "\n")
+            alteredFile.write (row)
+            screen += row
+
+        print (screen)
 
 
 #PROGRAM STARTS HERE. DO NOT CHANGE THIS CODE.
