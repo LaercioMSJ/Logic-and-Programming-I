@@ -21,7 +21,7 @@ def main():
     listOfGuests = []
 
     
-    fileName = "PartyGuestList.csv"
+    fileName = "InClass\\Lab11\\PartyGuestList.csv"
     accessMode = "w"
     try:
         myFile = open(fileName, accessMode)

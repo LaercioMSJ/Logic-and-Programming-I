@@ -74,7 +74,7 @@ def main():
     listOfChoices = []
 
     # Open the the_choices_file.csv file with options to choose
-    fileName = "the_choices_file.csv"
+    fileName = "Assignments\\Assignment4\\the_choices_file.csv"
     accessMode = "r"
 
     with open(fileName, accessMode) as myCSVFile:
@@ -120,7 +120,7 @@ def main():
     completedStory = ""
 
     # Open the the_story_file.txt file with a incomplete story, and save all the text in completedStory
-    fileName = "the_story_file.txt"
+    fileName = "Assignments\\Assignment4\\the_story_file.txt"
     accessMode = "r"
 
     with open(fileName, accessMode) as myTXTFile:

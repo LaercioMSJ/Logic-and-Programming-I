@@ -33,6 +33,8 @@
 # Author: Laercio M da Silva Junior - W0433181.
 ###########################################
 
+import random
+
 def main():
     # Main function for execution of program code.
     # Make sure you tab once for every line.

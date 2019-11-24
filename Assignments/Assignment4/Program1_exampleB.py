@@ -65,7 +65,7 @@ def main():
     alteredText = []
     line = 1
 
-    fileName = "ateam_Original.txt"
+    fileName = "Assignments\\Assignment4\\ateam_Original.txt"
     accessMode = "r"
 
     with open(fileName, accessMode) as originalFile:
@@ -92,7 +92,7 @@ def main():
     print ("-" * 34)
 
 
-    fileName = "ateam_Altered.txt"
+    fileName = "Assignments\\Assignment4\\ateam_Altered.txt"
     accessMode = "w"
     screen = ""
 

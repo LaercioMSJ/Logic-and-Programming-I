@@ -39,7 +39,7 @@ def main():
 
         print("\n======================================================================================================\n")
 
-        fileName = "TC6_monsters.csv"
+        fileName = "TechChecks\\TC6\\TC6_monsters.csv"
         accessMode = "r"
         with open(fileName, accessMode) as myCSVFile:
             dataFromFile = csv.reader(myCSVFile)

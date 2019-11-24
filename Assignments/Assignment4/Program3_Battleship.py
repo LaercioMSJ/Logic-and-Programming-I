@@ -127,7 +127,7 @@ def main():
 
     # Open the map file with the coordenates of the ships, save all
     #  information on mapOriginal 2Dlist and close the file
-    fileName = "map.txt"
+    fileName = "Assignments\\Assignment4\\map.txt"
     accessMode = "r"
 
     with open(fileName, accessMode) as myTXTFile:

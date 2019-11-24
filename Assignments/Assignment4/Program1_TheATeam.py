@@ -102,7 +102,7 @@ def main():
 
     # INPUT
     # Open the ateam_Original.txt file with original text and save in originalText
-    fileName = "ateam_Original.txt"
+    fileName = "Assignments\\Assignment4\\ateam_Original.txt"
     accessMode = "r"
 
     with open(fileName, accessMode) as originalFile:
@@ -136,7 +136,7 @@ def main():
 
 
     # Create the ateam_Altered.txt file to save the alteredText
-    fileName = "ateam_Altered.txt"
+    fileName = "Assignments\\Assignment4\\ateam_Altered.txt"
     accessMode = "w"
 
     with open(fileName, accessMode) as alteredFile:

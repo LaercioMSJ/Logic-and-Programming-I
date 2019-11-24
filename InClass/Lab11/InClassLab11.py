@@ -18,7 +18,7 @@ def main():
     # Make sure you tab once for every line.
 
     # INPUT
-    fileName = "Ottawa_Ball_Diamonds.csv"
+    fileName = "InClass\\Lab11\\Ottawa_Ball_Diamonds.csv"
     accessMode = "r"
 
     typeOfField = input("What type of fields do you want to list? softball, baseball, or T-Ball?").upper()
