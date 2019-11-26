@@ -13,6 +13,8 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
     countries = []
 
+    updateSaved = True
+
 
         # DO NOT MODIFY THIS CODE
     def __init__(self, parent=None):
@@ -25,6 +27,8 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         self.listCountries.currentRowChanged.connect(self.countrySelectedFromList)
 
+        self.pushButtonUpdate.clicked.connect(self.updateCountries)
+
         self.actionExit.triggered.connect(self.exitApplication)
 
         ###### é possivel adicionar isso pelo designer???
@@ -35,6 +39,10 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.comboBoxTotal_Area_In.hide()
         self.groupBoxPopulation_Density.hide()
         self.labelPercentage_Of_World.hide()
+
+
+
+
 
 
     # ADD SLOT FUNCTIONS HERE
@@ -77,12 +85,33 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.groupBoxPopulation_Density.show()
         self.labelPercentage_Of_World.show()
 
+    
+
+    def updateCountries(self):
+        # determine the index of the currently selected country in the list
+        selected_index = self.listCountries.currentRow()
+        # update the data in memory (countries[]) with the values in the text boxes
+        countryPopulation = self.lineEditCountry_Population.text()
+        self.countries[selected_index][1] = countryPopulation.replace(",","")
+
+
+        self.lineEditCountry_Population.setText("{0:,}".format(int(countryPopulation.replace(",",""))))
+        # popup a message to the user to let them know that the data was updated
+        QMessageBox.information(self,"Updated","Data has been updated in memory, but hasn\'t been updated in the file yet",QMessageBox.Ok)
+        # toggle the updateSaved variable to False so that the program
+        # prompts you to save to file when shutting down.
+        self.updateSaved = False
+
         self.actionSave_To_File.setEnabled(True)
 
 
 
     def exitApplication(self):
         QApplication.closeAllWindows()
+
+
+
+
 
 
     #ADD HELPER FUNCTIONS HERE
@@ -106,6 +135,10 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         for country in self.countries:
             self.listCountries.addItem(country[0])
+
+
+
+
 
 
 # DO NOT MODIFY THIS CODE
