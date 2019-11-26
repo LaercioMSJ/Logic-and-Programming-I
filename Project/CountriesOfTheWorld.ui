@@ -100,7 +100,7 @@
     </property>
    </widget>
    <widget class="QLabel" name="labelTotal_Area_In">
-    <property name="geometry">
+     <property name="geometry">
      <rect>
       <x>320</x>
       <y>400</y>
@@ -129,8 +129,8 @@
     <property name="font">
      <font>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -143,14 +143,14 @@
    <widget class="QLabel" name="labelCountry_Flag">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>330</x>
       <y>80</y>
-      <width>341</width>
+      <width>331</width>
       <height>171</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="labelPercentage_Of_World">
@@ -253,6 +253,12 @@
     <property name="title">
      <string>Population Density</string>
     </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
     <widget class="QRadioButton" name="radioButtonSquare_Mile">
      <property name="geometry">
       <rect>
@@ -262,8 +268,14 @@
        <height>17</height>
       </rect>
      </property>
+     <property name="tabletTracking">
+      <bool>false</bool>
+     </property>
      <property name="text">
       <string>Per Square Mile</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButtonSquare_KM">
@@ -287,6 +299,12 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>

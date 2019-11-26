@@ -1,6 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtGui import QPixmap
 
 #ADD IMPORT STATEMENT FOR YOUR GENERATED UI.PY FILE HERE
 import Ui_CountriesOfTheWorld
@@ -26,6 +27,15 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         self.actionExit.triggered.connect(self.exitApplication)
 
+        ###### é possivel adicionar isso pelo designer???
+        self.labelTotal_Area_In.hide()
+        self.labelPopulation.hide()
+        self.pushButtonUpdate.hide()
+        self.lineEditCountry_Population.hide()
+        self.comboBoxTotal_Area_In.hide()
+        self.groupBoxPopulation_Density.hide()
+        self.labelPercentage_Of_World.hide()
+
 
     # ADD SLOT FUNCTIONS HERE
     def actionLoadCountries(self):
@@ -33,19 +43,41 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.populateListWithCountries()
 
 
-
+# Perguntar sobre essa função estar aqui e nao na no helper functions #
     def countrySelectedFromList(self, selectedIndex):#<- selectedIndex is the index of the item that was selected in the ui list
         
         # retrieve the appropriate data from the countries list which
         # contains the data that was loaded from the file
         countryName = self.countries[selectedIndex][0] #<- 0 is the name (the first value in the line)
-        countryPopulation = self.countries[selectedIndex][1]  #<- 1 is the population (the second value in the line)
-        countryArea = self.countries[selectedIndex][2]  #<- 2 is the area (the third value in the line)
+        countryPopulation = int(self.countries[selectedIndex][1])  #<- 1 is the population (the second value in the line)
+        countryArea = float(self.countries[selectedIndex][2])  #<- 2 is the area (the third value in the line)
 
         # set the values to the labels on the form
         self.labelCountry_Name.setText(countryName)
-        self.lineEditCountry_Population.setText(countryPopulation)
-        self.labelCountry_Area.setText(countryArea)
+        self.lineEditCountry_Population.setText("{0:,}".format(countryPopulation))
+        self.labelCountry_Area.setText("{0:,.1f}".format(countryArea))
+
+        self.labelPopulation_Density.setText("{0:,.2f}".format(countryPopulation/countryArea))
+
+        totalPopulationOfTheWorld = 0
+        for i in range(len(self.countries)):
+            totalPopulationOfTheWorld += int(self.countries[i][1])
+        
+        self.labelCountry_Percentage.setText("{0:.4f}%".format(countryPopulation*100/totalPopulationOfTheWorld))
+
+        #set the label with the selected pixmap
+        self.labelCountry_Flag.setPixmap(QPixmap("Project\\Files\\Flags\\" + countryName.replace(" ","_") + ".png"))
+
+
+        self.labelTotal_Area_In.show()
+        self.labelPopulation.show()
+        self.pushButtonUpdate.show()
+        self.lineEditCountry_Population.show()
+        self.comboBoxTotal_Area_In.show()
+        self.groupBoxPopulation_Density.show()
+        self.labelPercentage_Of_World.show()
+
+        self.actionSave_To_File.setEnabled(True)
 
 
 
