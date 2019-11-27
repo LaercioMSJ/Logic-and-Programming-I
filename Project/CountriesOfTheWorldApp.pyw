@@ -1,3 +1,27 @@
+###########################################
+# Desc: PROG 1700 - Final Project (GUI)
+#
+# Date: 27 November 2019
+#
+# Author: Laercio M da Silva Junior - W0433181.
+###########################################
+#
+# PSEUDOCODE:
+# Open the Application
+# Load the information contained in the countries.txt to a 2D list
+# Show the names of all countries in the list object(GUI)
+# By clicking on each country name, information regarding population,
+#  area, density, percentage of world population should be shown on the screen
+# Select unit of measure to show area (Miles or KMs)
+# Select unit of measure to show density (Miles or KMs)
+# Possibility to change the population of each country,
+#  and click the update button to update the population contained in the 2D list
+# Click save to save the information contained in the 2D list to the countries.txt file
+# If user tries to close application without saving,
+#  a message will be displayed on the screen asking if user wants to save changes
+#
+######################################################
+
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
