@@ -28,27 +28,14 @@ class MyForm(QMainWindow, Ui_TaxCalculator.Ui_MainWindow):
     #ADD ALL OTHER HELPER FUNCTIONS HERE
     def inputOfSalaryAndDependents(self):
 
-        while True:
-            try:
-                float(self.lineEditSalary.text())
-                break
-            except:
-                self.lineEditSalary.clear()
-                self.lineEditSalary.setText('0')
-                QMessageBox.information(self, 'Invalid Data', 'Please, use only numbers in this field!', QMessageBox.Ok)
-
-        weeklySalary = float(self.lineEditSalary.text())
-
-        while True:
-            try:
-                int(self.lineEditDependents.text())
-                break
-            except:
-                QMessageBox.information(self, 'Invalid Data', 'Please, use only numbers in this field!', QMessageBox.Ok)
-                self.self.lineEditDependents.clear()
-                self.self.lineEditDependents.setText("0")
-
-        dependents = int(self.lineEditDependents.text())
+        try:
+            weeklySalary = float(self.lineEditSalary.text())
+            dependents = int(self.lineEditDependents.text())
+        except:
+            QMessageBox.information(self, 'Invalid Data', 'Please, use only numbers in this field!', QMessageBox.Ok)
+            self.lineEditSalary.clear()
+            self.lineEditDependents.clear()
+            return
 
         self.calculateAllValues(weeklySalary, dependents)
 
