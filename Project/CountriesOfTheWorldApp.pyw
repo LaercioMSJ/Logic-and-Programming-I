@@ -19,7 +19,7 @@
 # Click save to save the information contained in the 2D list to the countries.txt file
 # If user tries to close application without saving,
 #  a message will be displayed on the screen asking if user wants to save changes
-#
+##
 ######################################################
 
 import sys

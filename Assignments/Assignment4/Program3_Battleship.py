@@ -149,8 +149,10 @@ def main():
 
     board[0] = [" ", "A", "B", "C", "D","E", "F", "G", "H", "I", "J"]
 
-    for i in range(1,11):
-        board[i][0] = i
+    for i in range(1,10):
+        board[i][0] = " " + str(i)
+
+    board[10][0] = 10
 
 
     # WHILE loop is used to repeat each turn of the game
