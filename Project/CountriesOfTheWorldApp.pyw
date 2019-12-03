@@ -162,6 +162,29 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
 
 
+    def closeEvent(self, event):
+
+        if self.updateSaved == False:
+
+            msg = "Save changes to file before closing?"
+            reply = QMessageBox.question(self, 'Save?',
+                     msg, QMessageBox.Yes, QMessageBox.No)
+
+            if reply == QMessageBox.Yes:
+                self.saveChangesToFile()
+                event.accept()
+
+
+
+    def saveChangesToFile(self):
+        # open the file for writing (w). Make sure it is the same location as the file you opened.
+        with open("Project\\Files\\countries.txt", "w") as myFile:
+            #loop through each list within the in-memory people list
+            for country in self.countries: #<- refer to each list as person
+                # join each value in the person list and write them with a line break
+                myFile.write(",".join(country) + "\n")
+
+
 
 
 

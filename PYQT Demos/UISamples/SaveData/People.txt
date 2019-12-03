@@ -1,4 +1,4 @@
-Billy,25
+Billy,24
 George,52
 Mary,29
 William,19
