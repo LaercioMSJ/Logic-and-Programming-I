@@ -55,6 +55,9 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         self.actionExit.triggered.connect(self.exitApplication)
 
+        self.radioButtonSquare_Mile.clicked.connect(self.radioDensitySelection)
+        self.radioButtonSquare_KM.clicked.connect(self.radioDensitySelection)
+
 
 
 
@@ -69,9 +72,9 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
 
 
-        self.comboBoxTotal_Area_In.currentIndexChanged.connect(self.comboSelection)
+        self.comboBoxTotal_Area_In.currentIndexChanged.connect(self.comboAreaSelection)
 
-    def comboSelection(self):
+    def comboAreaSelection(self):
 
         milesToKmConstant = 1.60934
 
@@ -85,6 +88,16 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         elif self.comboBoxTotal_Area_In.currentText() == "Sq. Miles":
             self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles))
+
+    
+    def radioDensitySelection(self):
+
+        milesToKmConstant = 1.60934
+
+        selectedIndex = self.listCountries.currentRow()
+
+        
+
 
 
 
@@ -130,7 +143,8 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.labelPercentage_Of_World.show()
 
 
-        self.comboSelection()
+        self.comboAreaSelection()
+        self.radioDensitySelection()
 
     
 
