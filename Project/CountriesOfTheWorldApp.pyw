@@ -55,7 +55,10 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         self.actionExit.triggered.connect(self.exitApplication)
 
-        ###### é possivel adicionar isso pelo designer???
+
+
+
+
         self.labelTotal_Area_In.hide()
         self.labelPopulation.hide()
         self.pushButtonUpdate.hide()
@@ -65,6 +68,21 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.labelPercentage_Of_World.hide()
 
 
+
+        self.comboBoxTotal_Area_In.currentIndexChanged.connect(self.comboSelection)
+
+    def comboSelection(self):
+
+        selectedIndex = self.listCountries.currentRow()
+
+        areaInMiles = float(self.countries[selectedIndex][2])
+
+        if self.comboBoxTotal_Area_In.currentText() == "Sq. KMs":
+
+            self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles * 1.60934))
+
+        else:
+            self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles))
 
 
 
