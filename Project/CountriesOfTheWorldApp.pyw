@@ -73,15 +73,17 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
     def comboSelection(self):
 
+        milesToKmConstant = 1.60934
+
         selectedIndex = self.listCountries.currentRow()
 
         areaInMiles = float(self.countries[selectedIndex][2])
 
         if self.comboBoxTotal_Area_In.currentText() == "Sq. KMs":
 
-            self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles * 1.60934))
+            self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles * milesToKmConstant))
 
-        else:
+        elif self.comboBoxTotal_Area_In.currentText() == "Sq. Miles":
             self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles))
 
 
@@ -126,6 +128,9 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.comboBoxTotal_Area_In.show()
         self.groupBoxPopulation_Density.show()
         self.labelPercentage_Of_World.show()
+
+
+        self.comboSelection()
 
     
 
