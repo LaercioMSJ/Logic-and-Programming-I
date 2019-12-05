@@ -55,8 +55,8 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
 
         self.actionExit.triggered.connect(self.exitApplication)
 
-        self.radioButtonSquare_Mile.clicked.connect(self.radioDensitySelection)
-        self.radioButtonSquare_KM.clicked.connect(self.radioDensitySelection)
+        self.radioButtonSquare_Mile.toggled.connect(self.radioDensitySelection)
+        self.radioButtonSquare_KM.toggled.connect(self.radioDensitySelection)
 
 
 
@@ -90,11 +90,24 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
             self.labelCountry_Area.setText("{0:,.1f}".format(areaInMiles))
 
     
-    def radioDensitySelection(self):
 
+
+    def radioDensitySelection(self):
         milesToKmConstant = 1.60934
 
         selectedIndex = self.listCountries.currentRow()
+
+        countryPopulation = int(self.countries[selectedIndex][1])  #<- 1 is the population (the second value in the line)
+        areaInMiles = float(self.countries[selectedIndex][2])  #<- 2 is the area (the third value in the line)
+
+        areaInKms = areaInMiles * milesToKmConstant
+
+
+        if self.radioButtonSquare_Mile.isChecked() == True:
+            self.labelPopulation_Density.setText("{0:,.2f}".format(countryPopulation/areaInMiles))
+
+        elif self.radioButtonSquare_KM.isChecked() == True:
+            self.labelPopulation_Density.setText("{0:,.2f}".format(countryPopulation/areaInKms))
 
         
 
@@ -115,14 +128,15 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         # contains the data that was loaded from the file
         countryName = self.countries[selectedIndex][0] #<- 0 is the name (the first value in the line)
         countryPopulation = int(self.countries[selectedIndex][1])  #<- 1 is the population (the second value in the line)
-        countryArea = float(self.countries[selectedIndex][2])  #<- 2 is the area (the third value in the line)
+
+        self.comboAreaSelection()
+
+        self.radioDensitySelection()
 
         # set the values to the labels on the form
         self.labelCountry_Name.setText(countryName)
         self.lineEditCountry_Population.setText("{0:,}".format(countryPopulation))
-        self.labelCountry_Area.setText("{0:,.1f}".format(countryArea))
 
-        self.labelPopulation_Density.setText("{0:,.2f}".format(countryPopulation/countryArea))
 
         totalPopulationOfTheWorld = 0
         for i in range(len(self.countries)):
@@ -143,8 +157,6 @@ class MyForm(QMainWindow, Ui_CountriesOfTheWorld.Ui_MainWindow):
         self.labelPercentage_Of_World.show()
 
 
-        self.comboAreaSelection()
-        self.radioDensitySelection()
 
     
 

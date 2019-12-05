@@ -100,7 +100,7 @@
     </property>
    </widget>
    <widget class="QLabel" name="labelTotal_Area_In">
-     <property name="geometry">
+    <property name="geometry">
      <rect>
       <x>320</x>
       <y>400</y>
